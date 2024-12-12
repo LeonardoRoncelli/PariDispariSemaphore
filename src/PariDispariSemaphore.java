@@ -1,6 +1,5 @@
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-
 public class PariDispariSemaphore extends Thread{
     //dichiarazione degli attributi della classe
     int conta;
@@ -50,7 +49,7 @@ public class PariDispariSemaphore extends Thread{
     public static void main(String[]args){
         PariDispariSemaphore t1=new PariDispariSemaphore("Pari"); //istanza dell'oggetto a cui viene assegnato il nome "Pari"
         PariDispariSemaphore t2=new PariDispariSemaphore("Dispari"); //istanza dell'oggetto a cui viene assegnarto il nome "Dispari"
-        t1.start();
-        t2.start();
+        t1.start(); //il thread t1 richiama il metodo run
+        t2.start();// il thread t2 richiama il metodo run
     }
 }
