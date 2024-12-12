@@ -1,7 +1,7 @@
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-public class PariDispariSemaphore {
+public class PariDispariSemaphore extends Thread{
     //dichiarazione degli attributi della classe
     int conta;
     String nome;
@@ -10,10 +10,10 @@ public class PariDispariSemaphore {
     static Semaphore semaforoDispari=new Semaphore(0);
     public PariDispariSemaphore(String nome){ //costruttore della classe
         this.nome=nome;
-        if(nome.equalsIgnoreCase("dispari")){ //in questo if viene assegnato il primo valore alla variabile conta, tutto in base al contenuto della variabile nome
-            conta=1;
-        }else{
+        if(nome.equalsIgnoreCase("pari")){ //in questo if viene assegnato il primo valore alla variabile conta, tutto in base al contenuto della variabile nome
             conta=0;
+        }else{
+            conta=1;
         }
     }
     public void stampaNumPari(){
@@ -43,8 +43,14 @@ public class PariDispariSemaphore {
             if(nome.equalsIgnoreCase("pari")){ //se il nome è uguale a "pari" verra chiamato il metodo stampaNumPari altrimenti stampaNumDispari
                 stampaNumPari();
             }else{
-                stampaNumPari();
+                stampaNumDispari();
             }
         }
+    }
+    public static void main(String[]args){
+        PariDispariSemaphore t1=new PariDispariSemaphore("Pari"); //istanza dell'oggetto a cui viene assegnato il nome "Pari"
+        PariDispariSemaphore t2=new PariDispariSemaphore("Dispari"); //istanza dell'oggetto a cui viene assegnarto il nome "Dispari"
+        t1.start();
+        t2.start();
     }
 }
