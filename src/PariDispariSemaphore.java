@@ -38,4 +38,13 @@ public class PariDispariSemaphore {
             System.out.println(e);
         }
     }
+    public void run(){
+        while(true){//ciclo che stampa numeri all'infinito
+            if(nome.equalsIgnoreCase("pari")){ //se il nome è uguale a "pari" verra chiamato il metodo stampaNumPari altrimenti stampaNumDispari
+                stampaNumPari();
+            }else{
+                stampaNumPari();
+            }
+        }
+    }
 }
